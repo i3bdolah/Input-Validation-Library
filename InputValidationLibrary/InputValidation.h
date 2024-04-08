@@ -22,75 +22,110 @@ public:
 		return Period::IsDateWithinPeriod(date, Period::Period(fromDate, toDate));
 	}
 
-	static int ReadInt(string msg, string errorMsg = "Try Again : ") {
-		int num = 0;
-		do {
-			cout << msg;
-			cin >> num;
-		} while (num < 0);
 
-		return num;
-	}
-	static int ReadIntInRange(string msg, int from, int to, string errorMsg = "Try Again : ") {
+
+
+	static int ReadInt(string errorMsg = "Invalid Input, Re-Enter your number : ") {
 		int num;
-		do {
-			cout << msg;
-			cin >> num;
-		} while (!IsNumberBetween(num, from, to));
+
+		while (!(cin >> num))
+		{
+			cin.clear();
+			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			cout << errorMsg;
+		}
+		return num;
+	}
+
+	static int ReadIntBetween(int from, int to,
+		string errorMsg = "Invalid Input, Re-Enter your number : ") {
+		cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		int num = ReadInt(errorMsg);
+		while (!IsNumberBetween(num, from, to)) {
+			cout << errorMsg;
+			num = ReadInt(errorMsg);
+		};
 
 		return num;
 	}
-	static short ReadShort(string msg, string errorMsg = "Try Again : ") {
+
+
+
+	static short ReadShort(string errorMsg = "Invalid Input, Re-Enter your number : ") {
 		short num;
-		do {
-			cout << msg;
-			cin >> num;
-		} while (num < 0);
+
+		while (!(cin >> num))
+		{
+			cin.clear();
+			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			cout << errorMsg;
+		}
+		return num;
+	}
+
+	static short ReadShortBetween(short from, short to,
+		string errorMsg = "Invalid Input, Re-Enter your number : ") {
+
+		cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		short num = ReadShort(errorMsg);
+		while (!IsNumberBetween(num, from, to)) {
+			cout << errorMsg;
+			num = ReadShort(errorMsg);
+		};
 
 		return num;
 	}
-	static short ReadShortInRange(string msg, short from, short to, string errorMsg = "Try Again : ") {
-		short num;
-		do {
-			cout << msg;
-			cin >> num;
-		} while (!IsNumberBetween(num, from, to));
 
-		return num;
-	}
-	static float ReadFloat(string msg, string errorMsg = "Try Again : ") {
+
+
+	static float ReadFloat(string errorMsg = "Invalid Input, Re-Enter your number : ") {
 		float num;
-		do {
-			cout << msg;
-			cin >> num;
-		} while (num < 0);
+
+		while (!(cin >> num))
+		{
+			cin.clear();
+			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			cout << errorMsg;
+		}
+		return num;
+	}
+
+	static float ReadFloatBetween(float from, float to,
+		string errorMsg = "Invalid Input, Re-Enter your number : ") {
+
+		cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		float num = ReadFloat(errorMsg);
+		while (!IsNumberBetween(num, from, to)) {
+			cout << errorMsg;
+			num = ReadFloat(errorMsg);
+		};
 
 		return num;
 	}
-	static float ReadFloatInRange(string msg, float from, float to, string errorMsg = "Try Again : ") {
-		float num;
-		do {
-			cout << msg;
-			cin >> num;
-		} while (!IsNumberBetween(num, from, to));
 
-		return num;
-	}
-	static double ReadDouble(string msg, string errorMsg = "Try Again : ") {
+
+
+	static double ReadDouble(string errorMsg = "Invalid Input, Re-Enter your number : ") {
 		double num;
-		do {
-			cout << msg;
-			cin >> num;
-		} while (num < 0);
 
+		while (!(cin >> num))
+		{
+			cin.clear();
+			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			cout << errorMsg;
+		}
 		return num;
 	}
-	static double ReadDoubleInRange(string msg, double from, double to, string errorMsg = "Try Again : ") {
-		double num;
-		do {
-			cout << msg;
-			cin >> num;
-		} while (!IsNumberBetween(num, from, to));
+
+	static double ReadDoubleBetween(double from, double to,
+		string errorMsg = "Invalid Input, Re-Enter your number : ") {
+
+		cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		double num = ReadDouble(errorMsg);
+		while (!IsNumberBetween(num, from, to)) {
+			cout << errorMsg;
+			num = ReadDouble(errorMsg);
+		};
 
 		return num;
 	}

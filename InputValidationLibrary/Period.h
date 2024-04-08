@@ -42,7 +42,7 @@ public:
 
 	static bool IsDateWithinPeriod(Date date, Period per) {
 		if (Date::IsDate1AfterDate2(per.startDate, per.endDate)) {
-			Utility::Swap(per.startDate, per.endDate);
+			Date::SwapTwoDates(per.startDate, per.endDate);
 		}
 
 		return Date::IsDate1AfterDate2(date, per.startDate) && Date::IsDate1BeforeDate2(date, per.endDate);

@@ -2,9 +2,9 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
-#include <stdlib.h>     /* srand, rand */
-#include "Date.h";
 using namespace std;
+#include <stdlib.h>     /* srand, rand */
+#include "Date.h"
 
 class Utility
 {
@@ -395,8 +395,6 @@ public:
 		value2 = temp;
 	}
 	static void Swap(Date& value1, Date& value2) {
-		Date temp = value1;
-		value1 = value2;
-		value2 = temp;
+		Date::SwapTwoDates(value1, value2);
 	}
 };
