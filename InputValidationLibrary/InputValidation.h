@@ -130,8 +130,13 @@ public:
 		return num;
 	}
 
+	static string ReadString() {
+		string input;
+		getline(cin >> ws, input);
+		return input;
+	}
+
 	static bool IsDateValid(Date date) {
 		return Date::IsDateValid(date);
 	}
 };
-
